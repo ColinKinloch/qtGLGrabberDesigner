@@ -38,7 +38,7 @@
       <property name="widgetResizable">
        <bool>true</bool>
       </property>
-      <widget class="QWidget" name="glWidgetHolder">
+      <widget class="QWidget" name="glWidgetAreaWidget">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -48,8 +48,21 @@
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout">
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <item row="0" column="0">
-         <widget class="GLWidget" name="glWidget" native="true"/>
+         <widget class="GLWidget" name="glWidget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -82,8 +95,11 @@
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
+        <property name="margin">
+         <number>0</number>
+        </property>
         <item row="0" column="0">
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="pixmapLabel">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -271,107 +287,8 @@
   <tabstop>ySlider</tabstop>
   <tabstop>zSlider</tabstop>
  </tabstops>
- <includes>
-  <include location="local">src/glwidget.h</include>
- </includes>
  <resources/>
  <connections>
-  <connection>
-   <sender>xSlider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>glWidget</receiver>
-   <slot>setXRotation(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>219</x>
-     <y>224</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>133</x>
-     <y>130</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ySlider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>glWidget</receiver>
-   <slot>setYRotation(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>127</x>
-     <y>252</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>139</x>
-     <y>166</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>zSlider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>glWidget</receiver>
-   <slot>setZRotation(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>82</x>
-     <y>278</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>96</x>
-     <y>177</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>glWidget</sender>
-   <signal>xRotationChanged(int)</signal>
-   <receiver>xSlider</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>53</x>
-     <y>168</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>69</x>
-     <y>216</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>glWidget</sender>
-   <signal>yRotationChanged(int)</signal>
-   <receiver>ySlider</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>36</x>
-     <y>173</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>47</x>
-     <y>254</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>glWidget</sender>
-   <signal>zRotationChanged(int)</signal>
-   <receiver>zSlider</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>22</x>
-     <y>180</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>27</x>
-     <y>284</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>renderIntoPixmapAct</sender>
    <signal>triggered()</signal>
@@ -449,6 +366,102 @@
     <hint type="destinationlabel">
      <x>199</x>
      <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>xSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>glWidget</receiver>
+   <slot>setXRotation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>102</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ySlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>glWidget</receiver>
+   <slot>setYRotation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>102</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>zSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>glWidget</receiver>
+   <slot>setZRotation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>278</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>102</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>glWidget</sender>
+   <signal>xRotationChanged(int)</signal>
+   <receiver>xSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>glWidget</sender>
+   <signal>yRotationChanged(int)</signal>
+   <receiver>ySlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>glWidget</sender>
+   <signal>zRotationChanged(int)</signal>
+   <receiver>zSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>278</y>
     </hint>
    </hints>
   </connection>

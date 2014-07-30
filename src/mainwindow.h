@@ -70,29 +70,9 @@ namespace Ui {
 
  private:
      Ui::MainWindow *ui;
-     void createActions();
-     void createMenus();
      QSlider *createSlider(const char *changedSignal, const char *setterSlot);
      void setPixmap(const QPixmap &pixmap);
      QSize getSize();
-
-     QWidget *centralWidget;
-     QScrollArea *glWidgetArea;
-     QScrollArea *pixmapLabelArea;
-     GLWidget *glWidget;
-     QLabel *pixmapLabel;
-     QSlider *xSlider;
-     QSlider *ySlider;
-     QSlider *zSlider;
-
-     QMenu *fileMenu;
-     QMenu *helpMenu;
-     QAction *grabFrameBufferAct;
-     QAction *renderIntoPixmapAct;
-     QAction *clearPixmapAct;
-     QAction *exitAct;
-     QAction *aboutAct;
-     QAction *aboutQtAct;
  };
 
  #endif
