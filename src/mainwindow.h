@@ -70,7 +70,6 @@ namespace Ui {
 
  private:
      Ui::MainWindow *ui;
-     QSlider *createSlider(const char *changedSignal, const char *setterSlot);
      void setPixmap(const QPixmap &pixmap);
      QSize getSize();
  };
